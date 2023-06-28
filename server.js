@@ -26,11 +26,11 @@ app.use("/api/v1/admin", require("./routes/adminRoutes"));
 app.use("/api/v1/doctor", require("./routes/doctorRoutes"));
 
 // static files
-app.use(express.static(path.join(__dirname, './client/dist')))
+// app.use(express.static(path.join(__dirname, './client/dist')))
 
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, './client/dist/index.html'))
-})
+// app.get('*', function(req, res) {
+//   res.sendFile(path.join(__dirname, './client/dist/index.html'))
+// })
 
 // port
 const port = process.env.PORT || 8080;
