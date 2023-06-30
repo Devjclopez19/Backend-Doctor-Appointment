@@ -66,7 +66,7 @@ const authController = async (req, res) => {
     const user = await userModel.findById({ _id: req.body.userId });
     user.password = undefined;
     if (!user) {
-      res.status(200).send({
+      res.status(404).send({
         message: "user not found",
         success: false,
       });
@@ -252,7 +252,7 @@ const bookingAvailabilityController = async (req, res) => {
 const userAppointmentsController = async (req, res) => {
   try {
     const appointments = await appointmentModel.find({
-      userId: req.body.userId,
+      userId: req.params.id,
     });
     res.status(200).send({
       success: true,

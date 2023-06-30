@@ -24,7 +24,7 @@ router.post("/login", loginController);
 router.post("/register", registerController);
 
 // Auth || POST
-router.post("/getUserData", authMiddleware, authController);
+router.get("/getUserData", authMiddleware, authController);
 
 // Apply Doctor || POST
 router.post("/apply-doctor", authMiddleware, applyDoctorController);
@@ -53,6 +53,6 @@ router.post("/book-appointment", authMiddleware, bookAppointmentController);
 router.post("/booking-availability", authMiddleware, bookingAvailabilityController);
 
 // Appointments List
-router.get("/user-appointments", authMiddleware, userAppointmentsController);
+router.get("/user-appointments/:id", authMiddleware, userAppointmentsController);
 
 module.exports = router;

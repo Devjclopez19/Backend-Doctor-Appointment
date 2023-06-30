@@ -4,19 +4,19 @@ const { getDoctorInfoController, updateProfileController, getDoctorByIdControlle
 
 const router = express.Router();
 
-// POST SINGLE DOCTOR
-router.post("/getDoctorInfo", authMiddleware, getDoctorInfoController);
+// GET SINGLE DOCTOR
+router.get("/getDoctorInfo/:userId", authMiddleware, getDoctorInfoController);
 
-// POST UPDATE PROFILE
-router.post("/updateProfile", authMiddleware, updateProfileController);
+// UPDATE PROFILE
+router.put("/updateProfile", authMiddleware, updateProfileController);
 
-// POST GET SINGLE DOC INFO
-router.post("/getDoctorById", authMiddleware, getDoctorByIdController);
+// GET SINGLE DOC INFO
+router.get("/getDoctorById/:id", authMiddleware, getDoctorByIdController);
 
 // GET APPOINTMENTS
-router.get("/doctor-appointments", authMiddleware, doctorAppointmentsController);
+router.get("/doctor-appointments/:userId", authMiddleware, doctorAppointmentsController);
 
 // POST UPDATE STATUS
-router.post("/update-status", authMiddleware, updateStatusController);
+router.put("/update-status", authMiddleware, updateStatusController);
 
 module.exports = router;

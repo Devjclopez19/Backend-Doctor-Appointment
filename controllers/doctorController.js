@@ -4,7 +4,7 @@ const userModel = require("../models/userModels");
 
 const getDoctorInfoController = async (req, res) => {
   try {
-    const doctor = await doctorModel.findOne({ userId: req.body.userId });
+    const doctor = await doctorModel.findOne({ userId: req.params.userId });
     res.status(200).send({
       success: true,
       message: "doctor data fetch success",
@@ -40,7 +40,7 @@ const updateProfileController = async (req, res) => {
 
 const getDoctorByIdController = async (req, res) => {
   try {
-    const doctor = await doctorModel.findById({_id: req.body.doctorId})
+    const doctor = await doctorModel.findById({_id: req.params.id})
     res.status(200).send({
       success: true,
       message: 'Single Doctor Info Fetched',
@@ -58,7 +58,7 @@ const getDoctorByIdController = async (req, res) => {
 
 const doctorAppointmentsController = async (req, res) => {
   try {
-    const doctor = await doctorModel.findOne({userId: req.body.userId})
+    const doctor = await doctorModel.findOne({userId: req.params.userId})
     const appointments = await appointmentMdodel.find({doctorId:doctor?._id})
     res.status(200).send({
       success: true,
